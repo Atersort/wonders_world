@@ -5,7 +5,7 @@
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 50px;
 }
 
 .nav__container {
@@ -13,6 +13,7 @@
     align-items: center;
     padding: 20px 0;
     gap: 30px;
+    text-decoration: none;
 }
 
 /*body*/
@@ -50,4 +51,13 @@
 
 .container__item-link {
     text-decoration: none;
+}
+
+.pagination {
+    margin-top: 20px;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer
 }

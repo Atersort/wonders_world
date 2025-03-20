@@ -1,0 +1,38 @@
+<?php
+require 'vendor/autoload.php';
+
+$client = new GuzzleHttp\Client();
+
+$response = $client->request('GET', 'https://www.world-wonders-api.org/v0/wonders/random');
+
+$parse = json_decode($response->getBody(), true);
+
+var_dump($parse);
+
+?>
+<!doctype html>
+<html lang="en">
+
+<?php include 'templates/head.php'; ?>
+
+<body class="body">
+<?php include 'templates/header.php'; ?>
+<main class="hero">
+    <h1 class="hero__h1"><?= $parse['name'] ?></h1>
+    <div class="wonders__info">
+        <p class="wonders__info_summary"><?= $parse['summary'] ?></p>
+        <div class="slider__wrapper">
+            <div class="slider">
+                <img src="" alt="">
+                <button type="button" class="button_slider slider__prev"><</button>
+                <button type="button" class="button_slider slider__next">></button>
+                <?php foreach ($parse['links']['images'] as $image): ?>
+                    <img class="slider__slide" src="<?= $image ?>" alt="">
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+    <script src="./script/script.js"></script>
+</main>
+</body>
+</html>

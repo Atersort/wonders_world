@@ -1,0 +1,148 @@
+:root {
+    --bg-color : #CFCCC5;
+    --font-color: #131312;
+    --primary-color: #830000;
+
+    --font-size-text: 24px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body{
+    background-color: var(--bg-color);
+}
+
+img {
+    filter: grayscale(100%); /* Делает изображение полностью черно-белым */
+}
+
+/*header */
+.header-wrapper {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+.header-logo {
+}
+
+.header-logo a {
+    font: 600 1.5rem Roboto;
+    text-decoration: none;
+    color: #131312;
+}
+
+.header-logo a:hover {
+    color: var(--primary-color);
+    transition: 0.3s;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap:50px;
+    width: 60%;
+}
+
+.nav__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    gap: 30px;
+    text-decoration: none;
+    font-family: Roboto;
+    list-decoration: none;
+    text-decoration: none;
+
+    justify-self: center;
+}
+
+.nav__container__item {
+    list-style: none;
+}
+
+.nav__container__item a {
+    color: var(--font-color);
+}
+
+.nav__container__item a:hover {
+    color: var(--primary-color);
+    transition: 0.3s;
+}
+
+.nav__sing-in {
+    display: flex;
+    justify-content: end;
+    justify-self: end;
+}
+
+.nav__sing-in a {
+    font-family: Roboto;
+    text-decoration: none;
+    color: inherit;
+    font-size: var(--font-size-text);
+}
+
+    /*body*/
+.hero {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.hero__h1 {
+    color: var(--primary-color);
+    font: 600 4.5rem Almendra, sans-serif;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.container__item {
+    font-size: 16px;
+    text-decoration: none;
+    font-family: Roboto;
+}
+
+.container__item__img {
+    width: 400px;
+    height: 250px;
+}
+
+.container__item {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.container__item-link {
+    text-decoration: none;
+    font-size: var(--font-size-text);
+}
+
+.pagination {
+    margin-top: 20px;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer
+}

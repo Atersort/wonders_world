@@ -13,7 +13,7 @@
                 </ul>
             </div>
             <div class="nav__sing-in">
-                <a href="/public/sign-in.php">Sign in</a>
+                <a href="/sign-in.php">Sign in</a>
             </div>
         </nav>
     </div>

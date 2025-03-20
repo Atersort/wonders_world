@@ -7,7 +7,6 @@ $response = $client->request('GET', 'https://www.world-wonders-api.org/v0/wonder
 
 $parse = json_decode($response->getBody(), true);
 
-var_dump($parse);
 
 ?>
 <!doctype html>
@@ -20,6 +19,13 @@ var_dump($parse);
 <main class="hero">
     <h1 class="hero__h1"><?= $parse['name'] ?></h1>
     <div class="wonders__info">
+        <p class="wonders__info_year">Build Year: <?= $parse['build_year'] ?></p>
+        <div class="wonders__info_links">
+                <a class="wonders__info_link" target="_blank" href="<?= $parse['links']['wiki'] ?>">Wiki</a>
+                <a class="wonders__info_link" target="_blank" href="<?= $parse['links']['britannica'] ?>">Britannica</a>
+                <a class="wonders__info_link" target="_blank" href="<?= $parse['links']['google_maps'] ?>">Google maps</a>
+                <a class="wonders__info_link" target="_blank" href="<?= $parse['links']['trip_advisor'] ?>">Trip Advisor</a>
+        </div>
         <p class="wonders__info_summary"><?= $parse['summary'] ?></p>
         <div class="slider__wrapper">
             <div class="slider">

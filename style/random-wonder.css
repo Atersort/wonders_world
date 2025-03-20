@@ -97,8 +97,7 @@ img {
 .hero {
     max-width: 1440px;
     width: 100%;
-    margin: 0 auto;
-    margin-top: 40px;
+    margin: 40px auto;
 }
 
 .hero__h1 {
@@ -147,6 +146,44 @@ img {
     cursor: pointer
 }
 
+.wonders__info_summary {
+    font: 400 1.5rem Roboto;
+    width: 940px;
+    text-align: center;
+    margin: 20px auto;
+}
+
+.wonders__info_year {
+    font: 700 1.5rem Roboto;
+    width: 940px;
+    text-align: center;
+    margin: 20px auto;
+}
+
+.wonders__info_links {
+    font: 700 1.5rem Roboto;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+}
+
+.wonders__info_link {
+    text-decoration: none;
+    color: var(--font-color);
+    font-size: var(--font-size-text);
+}
+
+.wonders__info_link:hover {
+    color: var(--primary-color);
+    transition: 0.3s;
+}
+
+
+/*slider*/
+
 .slider__wrapper {
     display: flex;
     justify-content: center;
@@ -154,9 +191,9 @@ img {
 
 .slider {
     overflow: hidden;
-    max-width: 840px;
+    max-width: 1040px;
     width: 80%;
-    height: 600px;
+    height: 1200px;
     position: relative;
 }
 

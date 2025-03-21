@@ -191,9 +191,9 @@ img {
 
 .slider {
     overflow: hidden;
-    max-width: 1040px;
+    max-width: 800px;
     width: 80%;
-    height: 1200px;
+    height: 700px;
     position: relative;
 }
 
@@ -201,7 +201,7 @@ img {
     position: absolute;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     opacity: 0;
     transition: opacity 0.5s ease;
 }

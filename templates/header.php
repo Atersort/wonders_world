@@ -14,6 +14,7 @@
             </div>
             <div class="nav__sing-in">
                 <a href="/sign-in.php">Sign in</a>
+                <a href="/sign-in.php">Register</a>
             </div>
         </nav>
     </div>

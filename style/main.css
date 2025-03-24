@@ -84,6 +84,7 @@ img {
     display: flex;
     justify-content: end;
     justify-self: end;
+    gap: 20px;
 }
 
 .nav__sing-in a {

@@ -22,8 +22,6 @@ class DB_connect
     {
         $statement = $this->ConnectDB()->prepare("SELECT * FROM users WHERE login=:login AND password=:password ");
         $statement->execute([':login' => $user_log, ':password' => $user_pass]);
-        $result = $statement->fetch(PDO::FETCH_ASSOC);
-
-        return $result;
+        return $statement->fetch(PDO::FETCH_ASSOC);
     }
 }

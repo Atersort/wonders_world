@@ -1,6 +1,4 @@
 <?php
-
-
 class DB_connect
 {
 
@@ -23,5 +21,11 @@ class DB_connect
         $statement = $this->ConnectDB()->prepare("SELECT * FROM users WHERE login=:login AND password=:password ");
         $statement->execute([':login' => $user_log, ':password' => $user_pass]);
         return $statement->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function addWonder($name, $age, $description)
+    {
+    $statement = $this->ConnectDB()->prepare("INSERT INTO wonders (name, age, description) VALUES (:name, :age, :description)");
+    $statement->execute([":name" => $name, ":age" => $age, ":description" => $description]);
     }
 }

@@ -11,7 +11,6 @@ $query = new DB_connect();
 if (!empty([$user_login]) and !empty($user_pass)) {
     $result = $query->singIn($user_login, $user_pass);
     if (is_array($result) and $result['login'] === $user_login and $result['password'] === $user_pass) {
-        echo "успеъ";
         $_SESSION['auth'] = true;
         $_SESSION['user_login'] = $user_login;
     } else {

@@ -19,7 +19,7 @@
             </div>
 <?php else: ?>
             <div class="nav__sing-in">
-                <a href="/"><?php echo $_SESSION['user_login']?></a>
+                <a href="/admin.php"><?php echo $_SESSION['user_login']?></a>
                 <a href="/sign-out.php">Sign out</a>
             <?php endif;?>
 

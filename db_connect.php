@@ -26,6 +26,6 @@ class DB_connect
     public function addWonder($name, $age, $description)
     {
     $statement = $this->ConnectDB()->prepare("INSERT INTO wonders (name, age, description) VALUES (:name, :age, :description)");
-    $statement->execute([":name" => $name, ":age" => $age, ":description" => $description]);
+    return $statement->execute([":name" => $name, ":age" => $age, ":description" => $description]);
     }
 }

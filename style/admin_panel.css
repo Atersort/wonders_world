@@ -12,3 +12,15 @@
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
+.tabs__container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style-type: none;
+    cursor: pointer;
+}
+
+.hidden-tab-content {
+    display: none;
+}

@@ -22,12 +22,17 @@ if (!empty([$user_login]) and !empty($user_pass)) {
 <!doctype html>
 <html lang="en">
 <?php include 'templates/head.php'?>
-<body>
+<body class="body">
+
 <?php include 'templates/header.php'?>
-<form action="" method="POST">
+<main class="hero">
+<form class="sign__in_form" action="" method="POST">
+    <label for="login">Login</label>
     <input name="login">
+    <label for="login">Password</label>
     <input name="password" type="password">
     <input type="submit">
 </form>
+</main>
 </body>
 </html>

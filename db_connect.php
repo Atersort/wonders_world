@@ -25,7 +25,18 @@ class DB_connect
 
     public function addWonder($name, $age, $description)
     {
-    $statement = $this->ConnectDB()->prepare("INSERT INTO wonders (name, age, description) VALUES (:name, :age, :description)");
-    return $statement->execute([":name" => $name, ":age" => $age, ":description" => $description]);
+        $statement = $this->ConnectDB()->prepare("INSERT INTO wonders (name, age, description) VALUES (:name, :age, :description)");
+        return $statement->execute([":name" => $name, ":age" => $age, ":description" => $description]);
+    }
+
+    public function addComments($user_name, $comment_text, $wonder_name)
+    {
+        $pdo = $this->ConnectDB();
+        $statement = $pdo->prepare("INSERT INTO comments (user_name, comment_text, wonder_name) VALUES (:name_user, :text_user, :id_wonder)");
+        return $statement->execute([
+            ":name_user" => $user_name,
+            ":text_user" => $comment_text,
+            ":id_wonder" => $wonder_name
+        ]);
     }
 }

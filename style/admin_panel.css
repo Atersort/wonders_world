@@ -4,6 +4,7 @@
     flex-direction: column;
     align-items: center;
     gap: 30px;
+    min-width: 1200px;
 }
 
 .add_wonder input {
@@ -21,6 +22,36 @@
     cursor: pointer;
 }
 
+.tab__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    margin: 30px 0;
+}
+
+.tab__content label {
+    align-items: start;
+}
+
 .hidden-tab-content {
     display: none;
+}
+
+.tab__title {
+    margin: 30px 0px;
+    border: 2px solid var(--primary-color);
+    padding: 20px;
+    border-radius: 15px;
+    font-family: Roboto;
+}
+
+.active-tab {
+    background-color: #555555;
+    color: white;
+    border: 1px solid #555555;
+}
+
+.tab__h2 {
+    font-family: Almendra;
 }

@@ -39,4 +39,13 @@ class DB_connect
             ":id_wonder" => $wonder_name
         ]);
     }
+
+    public function getComments($wonder_name)
+    {
+        $pdo = $this->ConnectDB();
+        $statement = $pdo->prepare("SELECT * FROM comments WHERE wonder_name=:wonder_name");
+        $statement->execute([":wonder_name" => $wonder_name]);
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 }

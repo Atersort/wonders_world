@@ -4,6 +4,7 @@ require './vendor/autoload.php';
 
 $client = new GuzzleHttp\Client();
 
+//start pagination
 $response = $client->request('GET', 'https://www.world-wonders-api.org/v0/wonders/');
 $wonders = json_decode($response->getBody(), true);
 

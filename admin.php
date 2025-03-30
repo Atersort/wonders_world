@@ -42,6 +42,7 @@ if (!empty($_POST['name_wonder']) and !empty($_POST['age_wonder'] and !empty($_P
         </div>
         <div id="tab-2" class="tab__content hidden-tab-content">
             <h2 class="tab__h2">Модерация комментариев</h2>
+            div
         </div>
     </div>
 </div>

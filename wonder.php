@@ -12,14 +12,25 @@ $wonder = json_decode($response->getBody(), true);
 
 include 'db_connect.php';
 
-$name_user = $_POST['name_user'] ?? "";
-$text_user = $_POST['text_user'] ?? "";
+$query = new DB_connect();
+
 $id_wonder = $_GET["type"] ?? "";
 
-if (!empty($name_user) and !empty($text_user)) {
-    $query = new DB_connect();
-    $query->addComments($name_user, $text_user, $id_wonder);
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    $name_user = $_POST['name_user'] ?? "";
+    $text_user = $_POST['text_user'] ?? "";
+
+    if (!empty($name_user) and !empty($text_user)) {
+        $query->addComments($name_user, $text_user, $id_wonder);
+        header("Location: wonder.php?type=$id_wonder");
+    }
+
 }
+
+
+$get_comments = $query->getComments($id_wonder);
+
 
 ?>
 <!doctype html>
@@ -50,9 +61,9 @@ if (!empty($name_user) and !empty($text_user)) {
         </div>
     </div>
     <section class="comments">
-        <h2>Комментарии</h2>
-        <div class="comments_form">
-            <form method="post">
+        <h2 class="comments_h2">Комментарии</h2>
+        <div class="comments_form_wrapper">
+            <form class="comments_form" method="post">
                 <label for="name_user">Имя пользователя</label>
                 <input name="name_user" type="text">
                 <label for="text_user">Комментарий</label>
@@ -60,7 +71,14 @@ if (!empty($name_user) and !empty($text_user)) {
                 <button>Отправить</button>
             </form>
         </div>
-
+        <div class="comments__container">
+            <?php foreach ($get_comments as $comment) : ?>
+                <div class="comment">
+                    <div><?= $comment['user_name'] ?></div>
+                    <p><?= $comment['comment_text'] ?></p>
+                </div>
+            <?php endforeach; ?>
+        </div>
     </section>
 </main>
 

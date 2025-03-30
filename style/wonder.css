@@ -1,0 +1,33 @@
+.comments {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.comments_h2 {
+    font-family: Almendra, sans-serif;
+    font-size: 36px;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.comments_form_wrapper {
+}
+
+.comments_form {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    min-width: 1200px;
+}
+
+.comments__container {
+    margin: 20px;
+}
+
+.comment {
+    display: flex;
+    gap: 10px;
+}
+

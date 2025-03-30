@@ -13,5 +13,5 @@ tabTitle.forEach(item => item.addEventListener('click', event => {
     document.getElementById(tabsTitleTarget).classList.remove('hidden-tab-content');
 }))
 
-document.querySelector("[data-tab='tab-1']").classList.add('active-tab');
-document.querySelector("#tab-1").classList.remove('hidden-tab-content');
+document.querySelector("[data-tab='tab-2']").classList.add('active-tab');
+document.querySelector("#tab-2").classList.remove('hidden-tab-content');

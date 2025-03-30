@@ -55,3 +55,24 @@
 .tab__h2 {
     font-family: Almendra;
 }
+
+/*moderation comments*/
+
+.comments-mod_wrapper {
+}
+
+.mod-form {
+    max-width: 840px;
+    border: 1px solid #555555;
+    padding: 30px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.mod-form-date {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+

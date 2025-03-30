@@ -40,7 +40,16 @@ class DB_connect
         ]);
     }
 
-    public function getComments($wonder_name)
+    public function getAllComments()
+    {
+      $pdo = $this->ConnectDB();
+      $statement = $pdo->prepare("SELECT * FROM comments");
+      $statement->execute();
+      $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+      return $result;
+    }
+
+    public function getComments($wonder_name) : array
     {
         $pdo = $this->ConnectDB();
         $statement = $pdo->prepare("SELECT * FROM comments WHERE wonder_name=:wonder_name");

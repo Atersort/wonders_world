@@ -9,6 +9,14 @@ class DB_connect
 
     private string $dsn;
 
+//    public function __construct($host, $db_name, $username, $password)
+//    {
+//        $this->$host = $host;
+//        $this->$db_name = $db_name;
+//        $this->$username = $username;
+//        $this->password = $password;
+//    }
+
     public function ConnectDB()
     {
         $this->dsn = "mysql:host=$this->host;dbname=$this->db_name";
@@ -55,6 +63,25 @@ class DB_connect
         $statement = $pdo->prepare("SELECT * FROM comments WHERE wonder_name=:wonder_name");
         $statement->execute([":wonder_name" => $wonder_name]);
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function deleteComments($id) : bool|Exception
+    {
+        $result = null;
+        try {
+            $pdo = $this->ConnectDB();
+            $statement = $pdo->prepare("DELETE FROM comments WHERE id=:id");
+            $statement->execute([":id" => $id]);
+            $result = true;
+
+            if ($statement->rowCount() === 0) {
+                throw new Exception("Комментарий с ID $id не найден");
+            }
+            return true;
+        } catch (PDOException $e) {
+            throw new Exception("Ошибка базы данных:" . $e->getMessage());
+        }
         return $result;
     }
 }

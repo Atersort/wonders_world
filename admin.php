@@ -7,14 +7,16 @@ if (empty($_SESSION['auth'])) {
 
 include "db_connect.php";
 
-if (!empty($_POST['name_wonder']) and !empty($_POST['age_wonder'] and !empty($_POST['description_wonder']))) {
-    $name = $_POST['name_wonder'];
-    $age = $_POST['age_wonder'];
-    $description = $_POST['description_wonder'];
-    $query = new DB_connect();
-    $query->addWonder($name, $age, $description);
-} else {
-    echo "Заполните все поля";
+if ($_SERVER['REQUEST_METHOD'] === "POST") {
+    if (!empty($_POST['name_wonder']) and !empty($_POST['age_wonder'] and !empty($_POST['description_wonder']))) {
+        $name = $_POST['name_wonder'];
+        $age = $_POST['age_wonder'];
+        $description = $_POST['description_wonder'];
+        $query = new DB_connect();
+        $query->addWonder($name, $age, $description);
+    } else {
+        echo "Заполните все поля";
+    }
 }
 
 function getAllComments()
@@ -41,10 +43,12 @@ function createPagination()
 
     $to_page_comments = array_slice($all_comments, $offset, $per_page);
 
-    return $to_page_comments;
+    return ["comments" => $to_page_comments, "page" => $page, "total_page" => $total_page];
 }
 
-$comments = createPagination();
+$result = createPagination();
+$page = $result['page'];
+
 
 ?>
 <!doctype html>
@@ -72,7 +76,7 @@ $comments = createPagination();
         <div id="tab-2" class="tab__content hidden-tab-content">
             <h2 class="tab__h2">Модерация комментариев</h2>
             <div class="comments-mod_wrapper">
-                <?php foreach($comments as $comment) :?>
+                <?php foreach($result['comments'] as $comment) :?>
                 <form class="mod-form" action="" method="post">
                     <div class="mod-form-date">
                         <a href="./wonder.php?type=">Ссылка на страницу</a>
@@ -81,10 +85,19 @@ $comments = createPagination();
                     </div>
                     <div>
                         <button class="btn">Изменить</button>
-                        <a href="/delete-comments.php">Delete</a>
+                        <a href="/delete-comments.php?page=<?= $comment['wonder_name']?>&id=<?= $comment['id'] ?>">Delete</a>
                     </div>
                 </form>
                 <?php endforeach; ?>
+                <div class="pagination">
+                    <?php if($page > 1): ?>
+                    <a href="./admin.php?page=<?= $page-1 ?>">Previous</a>
+                    <?php endif;?>
+                    <span><?php echo "Page" . $page . "of" . $result["total_page"]; ?></span>
+                    <?php if ($page < $result["total_page"]): ?>
+                    <a href="./admin.php?page=<?= $page + 1?>">Next</a>
+                    <?php endif;?>
+                </div>
             </div>
         </div>
     </div>
